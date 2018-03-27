@@ -1,0 +1,15 @@
+HISTORY.rst
+LICENSE
+MANIFEST.in
+README.rst
+pyefd.py
+requirements.txt
+setup.cfg
+setup.py
+tests.py
+pyefd.egg-info/PKG-INFO
+pyefd.egg-info/SOURCES.txt
+pyefd.egg-info/dependency_links.txt
+pyefd.egg-info/not-zip-safe
+pyefd.egg-info/requires.txt
+pyefd.egg-info/top_level.txt
