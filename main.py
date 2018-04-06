@@ -8,27 +8,27 @@ import cv2 as cv
 import rospy
 from std_msgs.msg import String
 
+xLoc = None
+yLoc = None
 
+
+# get contour data from opencv
 def callback(data):
+    global xLoc, yLoc
     rospy.loginfo(rospy.get_caller_id() + 'got new data, finding grasp... %s', data.data)
-    find_current_grasp()
-    # send the grasp out.
+    xLoc, yLoc = find_current_grasp()
 
 
 def listener():
     rospy.init_node('grasp', anonymous=True)
     rospy.Subscriber('chatter', String, callback)
-    rospy.spin()
-
-
-def talker():
-    pub = rospy.Publisher('chatter', String, queue_size=10)
-    rospy.init_node('talker', anonymous=True)
+    pub = rospy.Publisher('grasp_coordinates', String, queue_size=1)
     rate = rospy.Rate(10)  # 10hz
+    rospy.spin()
     while not rospy.is_shutdown():
-        hello_str = "hello world %s" % rospy.get_time()
-        rospy.loginfo(hello_str)
-        pub.publish(hello_str)
+        if xLoc is not None and yLoc is not None:
+            rospy.loginfo("publishing coordinates:")
+            pub.publish((xLoc, yLoc))
         rate.sleep()
 
 
