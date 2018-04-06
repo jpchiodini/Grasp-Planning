@@ -22,7 +22,7 @@ def callback(data):
 def listener():
     rospy.init_node('grasp', anonymous=True)
     rospy.Subscriber('chatter', String, callback)
-    pub = rospy.Publisher('grasp_coordinates', String, queue_size=1)
+    pub = rospy.Publisher('grasp_coordinates', tuple, queue_size=1)
     rate = rospy.Rate(10)  # 10hz
     rospy.spin()
     while not rospy.is_shutdown():
