@@ -8,6 +8,7 @@ import cv2 as cv
 import rospy
 
 from std_msgs.msg import String
+from std_msgs.msg import Float32MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
@@ -21,7 +22,7 @@ class ListenPublish(object):
         # initialize the model with 4th order efd, and 200 pts
         self.model = Model(4, 200)
         # initialize the publisher
-        self.pub = rospy.Publisher('grasp_coordinates', String, queue_size=1)
+        self.pub = rospy.Publisher('grasp_coordinates', Float32MultiArray, queue_size=1)
         self.sub = rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback)
 
     def run(self):
@@ -31,13 +32,18 @@ class ListenPublish(object):
     def callback(self, data):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(data, "mono8")
-            # plot_image = self.bridge.imgmsg_to_cv2(data,"rgb8")
         except CvBridgeError as e:
             print(e)
 
         self.find_current_grasp(cv_image)
         self.final_plot(self.model.P, self.xLoc, self.yLoc, cv_image, self.model.contour)
         print("grasp found")
+
+        a = [self.xLoc, self.yLoc]
+        pub_array = Float32MultiArray(data=a)
+        self.pub.publish(pub_array)
+        print("published locations")
+
 
     def final_plot(self, P, finalX, finalY, image=None, contour=None):
         # plot contours and grasping points in opencv

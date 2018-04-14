@@ -13,16 +13,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7725664">
+    <splitter split-orientation="horizontal" split-proportion="0.4743363">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+                <state relative-caret-position="255">
+                  <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
                   <folding>
-                    <element signature="e#1311#1884#0" />
+                    <element signature="e#22#59#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -114,7 +114,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,6 +125,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -190,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523720094492</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="slight refactoring">
+      <created>1523720121562</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523720121562</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -199,11 +206,10 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13937548" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4630617" side_tool="true" visible="true" weight="0.32680723" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4988576" weight="0.17620482" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.46382332" side_tool="true" visible="true" weight="0.32680723" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5369383" visible="true" weight="0.32680723" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5361767" visible="true" weight="0.32680723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290735" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -214,6 +220,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4988576" weight="0.17620482" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -283,7 +290,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>48</line>
+          <line>54</line>
           <option name="timeStamp" value="262" />
         </line-breakpoint>
       </breakpoints>
@@ -298,12 +305,22 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Grasping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="885">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -340,7 +357,7 @@
         <state relative-caret-position="780">
           <caret line="65" column="37" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="37" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -385,7 +402,7 @@
         <state relative-caret-position="135">
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -402,7 +419,7 @@
         <state relative-caret-position="45">
           <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -418,7 +435,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -453,7 +470,7 @@
         <state relative-caret-position="1887">
           <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -477,7 +494,7 @@
         <state relative-caret-position="1649">
           <caret line="99" selection-start-line="99" selection-end-line="99" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,10 +612,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        <state relative-caret-position="255">
+          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
           <folding>
-            <element signature="e#1311#1884#0" />
+            <element signature="e#22#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
