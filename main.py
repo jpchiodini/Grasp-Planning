@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 from __future__ import print_function
-import numpy as np
-from matplotlib import pyplot as plt
 
 import pyefd
 from Model import *
 import Grasping
 import cv2 as cv
 import rospy
-import PlotUtils
 
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
