@@ -30,11 +30,11 @@ import numpy as np
 import numpy
 from sympy import *
 
-try:
-    _range = xrange
-except NameError:
-    _range = range
+class Model(object):
 
+    def __init__(self,order = 10,normalize = False):
+        #initialize the model
+        self.px, self.py, self.zx, self.zy, self.nx, self.ny = initEFDModel(order,normalize)
 
 def elliptic_fourier_descriptors(contour, order=10, normalize=False):
     """Calculate elliptical Fourier descriptors for a contour.
@@ -55,7 +55,8 @@ def elliptic_fourier_descriptors(contour, order=10, normalize=False):
     phi = (2 * np.pi * t) / T
 
     coeffs = np.zeros((order, 4))
-    for n in _range(1, order + 1):
+
+    for n in range(1, order + 1):
         const = T / (2 * n * n * np.pi * np.pi)
         phi_n = phi * n
         d_cos_phi_n = np.cos(phi_n[1:]) - np.cos(phi_n[:-1])
@@ -90,7 +91,7 @@ def normalize_efd(coeffs, size_invariant=True):
         2 * ((coeffs[0, 0] * coeffs[0, 1]) + (coeffs[0, 2] * coeffs[0, 3])),
         ((coeffs[0, 0] ** 2) - (coeffs[0, 1] ** 2) + (coeffs[0, 2] ** 2) - (coeffs[0, 3] ** 2)))
     # Rotate all coefficients by theta_1.
-    for n in _range(1, coeffs.shape[0] + 1):
+    for n in range(1, coeffs.shape[0] + 1):
         coeffs[n - 1, :] = np.dot(
             np.array([[coeffs[n - 1, 0], coeffs[n - 1, 1]],
                       [coeffs[n - 1, 2], coeffs[n - 1, 3]]]),
@@ -103,7 +104,7 @@ def normalize_efd(coeffs, size_invariant=True):
     psi_rotation_matrix = np.array([[np.cos(psi_1), np.sin(psi_1)],
                                     [-np.sin(psi_1), np.cos(psi_1)]])
     # Rotate all coefficients by -psi_1.
-    for n in _range(1, coeffs.shape[0] + 1):
+    for n in range(1, coeffs.shape[0] + 1):
         coeffs[n - 1, :] = psi_rotation_matrix.dot(
             np.array([[coeffs[n - 1, 0], coeffs[n - 1, 1]],
                       [coeffs[n - 1, 2], coeffs[n - 1, 3]]])).flatten()
@@ -186,7 +187,7 @@ def initEFDModel(order):
     Zy = lambdify((c, d, n, m), dy)
 
     # precomputed symbolic stuff, will be good for real time
-    for n_ in _range(order):
+    for n_ in range(order):
         dx1 = dx.subs([(a, a_[n_]), (b, b_[n_]), (n, n_ + 1)])
         dy1 = dy.subs([(c, c_[n_]), (d, d_[n_]), (n, n_ + 1)])
 
@@ -224,7 +225,7 @@ def generateEFDModel(coeffs, locus, numPts, px, py, zx, zy, nx, ny):
     d = []
 
     # precompute symbollic stuff, will be good for real time
-    for n_ in _range(coeffs.shape[0]):
+    for n_ in range(coeffs.shape[0]):
         a.append(coeffs[n_, 0])
         b.append(coeffs[n_, 1])
         c.append(coeffs[n_, 2])
