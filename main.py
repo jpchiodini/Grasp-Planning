@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -12,7 +13,6 @@ import PlotUtils
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
-import matplotlib.pyplot as plt
 
 
 class ListenPublish(object):
@@ -20,9 +20,12 @@ class ListenPublish(object):
         # initialize the model
         self.xLoc = None
         self.yLoc = None
-        self.bridge = None
+        self.bridge = CvBridge()
         # initialize the model with 4th order efd, and 200 pts
         self.model = Model(4, 200)
+        # initialize the publisher
+        self.pub = rospy.Publisher('grasp_coordinates', String, queue_size=1)
+        self.sub = rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback)
 
     def run(self):
         self.listener()
@@ -35,25 +38,20 @@ class ListenPublish(object):
         except CvBridgeError as e:
             print(e)
 
-        # cv.imshow("Image window", cv_image)
-        # cv.waitKey(3)
-        # plt.plot()
-        # plt.pause(0.001)
-        # rospy.loginfo(rospy.get_caller_id() + 'got new data, finding grasp... %s', data.data)
         self.find_current_grasp(cv_image)
-        self.finalPlot(self.model.P, self.xLoc, self.yLoc, cv_image, self.model.contour)
-        print "grasp found"
+        self.final_plot(self.model.P, self.xLoc, self.yLoc, cv_image, self.model.contour)
+        print("grasp found")
 
-    def finalPlot(self, P, finalX, finalY, image=None, contour=None):
-        #plot contours and grasping points in opencv
+    def final_plot(self, P, finalX, finalY, image=None, contour=None):
+        # plot contours and grasping points in opencv
 
         a = P[:, 0].astype(int)
         b = P[:, 1].astype(int)
 
-        idx = np.ravel_multi_index((b,a), (image.shape[0], image.shape[1]))  # extract 1D indexes
+        idx = np.ravel_multi_index((b, a), (image.shape[0], image.shape[1]))  # extract 1D indexes
         image.ravel()[idx] = 255
 
-        fx = P[finalX,0].astype(int)
+        fx = P[finalX, 0].astype(int)
         fy = P[finalX, 1].astype(int)
 
         fx1 = P[finalY, 0].astype(int)
@@ -65,34 +63,21 @@ class ListenPublish(object):
         cv.imshow("test", image)
         cv.waitKey(3)
 
-
-
-
     def listener(self):
         rospy.init_node('grasp', anonymous=True)
-        rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback)
-        # pub = rospy.Publisher('grasp_coordinates', tuple, queue_size=1)
-
-        rate = rospy.Rate(100)  # 10hz
-        self.bridge = CvBridge()
-        plt.show(block=True)
+        rate = rospy.Rate(10)  # 10hz
         rospy.spin()
-        # while not rospy.is_shutdown():
-        #     if xLoc is not None and yLoc is not None:
-        #         rospy.loginfo("publishing coordinates:")
-        #         pub.publish((xLoc, yLoc))
-        #     rate.sleep()
 
     def find_current_grasp(self, img):
         img = 255 - img
         kernel = np.ones((15, 15), np.uint8)
         img = cv.dilate(img, kernel, 1)
         img = cv.erode(img, kernel, 1)
-        t = 180
+        # threshold contours close to white as we can. We can tinker with this value...
+        color_threshold = 180
         # create binary image
         blur = cv.GaussianBlur(img, (5, 5), 0)
-        (t, binary) = cv.threshold(blur, t, 255, cv.THRESH_BINARY)
-        # cv.imshow("output", binary)
+        (color_threshold, binary) = cv.threshold(blur, color_threshold, 255, cv.THRESH_BINARY)
 
         # find contours
         (_, contours, _) = cv.findContours(binary, cv.RETR_EXTERNAL,
@@ -100,12 +85,6 @@ class ListenPublish(object):
 
         # draw contours over original image
         cv.drawContours(img, contours, -1, (0, 0, 255), 5)
-
-        # display original image with contours
-        # cv.namedWindow("output", cv.WINDOW_NORMAL)
-        # cv.imshow("output", img)
-        # cv.waitKey(0)
-
         edge = cv.Canny(img, 100, 200)
         _, cnts, _ = cv.findContours(edge.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
         # cv.imshow('g', edge)
@@ -114,14 +93,6 @@ class ListenPublish(object):
         screenCnt = None
 
         contour_1 = np.vstack(cnts[0]).squeeze()
-        # plt.imshow(img, plt.cm.gray)
-        # plt.plot(contour_1[:, 0], contour_1[:, 1])
-        # plt.show()
-
-        # plots clockwise
-        # for ii in range(1, len(contour_1)):
-        #     plt.plot(contour_1[ii,0], contour_1[ii,1], 'y*', linewidth=2)
-        #     plt.show()
 
         P, N, Cbar = self.model.generate_model(contour_1)
         self.xLoc, self.yLoc = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
@@ -132,4 +103,3 @@ class ListenPublish(object):
 if __name__ == '__main__':
     t = ListenPublish()
     t.run()
-
