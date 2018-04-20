@@ -13,61 +13,41 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4743363">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
-                  <folding>
-                    <element signature="e#22#59#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="topics.py" pinned="false" current-in-tab="false">
-            <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="11220">
-                  <caret line="749" selection-start-line="749" selection-end-line="749" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Model.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Model.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3360">
-                  <caret line="231" selection-start-line="231" selection-end-line="231" />
-                  <folding>
-                    <element signature="e#637#668#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Grasping.py" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Grasping.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="61" selection-start-line="61" selection-end-line="61" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+              <folding>
+                <element signature="e#22#59#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topics.py" pinned="false" current-in-tab="false">
+        <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11220">
+              <caret line="749" selection-start-line="749" selection-end-line="749" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3360">
+              <caret line="231" selection-start-line="231" selection-end-line="231" />
+              <folding>
+                <element signature="e#637#668#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -104,16 +84,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="52" />
-    <option name="y" value="-11" />
-    <option name="width" value="1315" />
-    <option name="height" value="780" />
+    <option name="x" value="53" />
+    <option name="y" value="-4" />
+    <option name="width" value="1313" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,7 +106,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -201,19 +181,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="-11" width="1315" height="780" extended-state="6" />
+    <frame x="53" y="-4" width="1313" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13937548" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.46382332" side_tool="true" visible="true" weight="0.32680723" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.46382332" side_tool="true" visible="true" weight="0.16415663" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5361767" weight="0.32680723" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5361767" visible="true" weight="0.32680723" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290735" />
-      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73343486" weight="0.37349397" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -287,11 +267,6 @@
           <url>file://$PROJECT_DIR$/Grasping.py</url>
           <line>101</line>
           <option name="timeStamp" value="149" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="262" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -612,8 +587,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        <state relative-caret-position="170">
+          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>

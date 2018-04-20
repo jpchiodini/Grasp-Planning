@@ -7,7 +7,6 @@ import Grasping
 import cv2 as cv
 import rospy
 
-from std_msgs.msg import String
 from std_msgs.msg import Float32MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
@@ -16,8 +15,8 @@ from cv_bridge import CvBridge, CvBridgeError
 class ListenPublish(object):
     def __init__(self):
         # initialize the model
-        self.xLoc = None
-        self.yLoc = None
+        self.point1 = None
+        self.point2 = None
         self.bridge = CvBridge()
         # initialize the model with 4th order efd, and 200 pts
         self.model = Model(4, 200)
@@ -36,14 +35,15 @@ class ListenPublish(object):
             print(e)
 
         self.find_current_grasp(cv_image)
-        self.final_plot(self.model.P, self.xLoc, self.yLoc, cv_image, self.model.contour)
+        self.final_plot(self.model.P, self.point1, self.point2, cv_image, self.model.contour)
         print("grasp found")
 
-        a = [self.xLoc, self.yLoc]
+        # print output format point1 x point1 y point2 x point2 y
+        a = [self.model.P[self.point1, 0], self.model.P[self.point1, 1], self.model.P[self.point2, 0],
+             self.model.P[self.point2, 1]]
         pub_array = Float32MultiArray(data=a)
         self.pub.publish(pub_array)
         print("published locations")
-
 
     def final_plot(self, P, finalX, finalY, image=None, contour=None):
         # plot contours and grasping points in opencv
@@ -98,7 +98,7 @@ class ListenPublish(object):
         contour_1 = np.vstack(cnts[0]).squeeze()
 
         P, N, Cbar = self.model.generate_model(contour_1)
-        self.xLoc, self.yLoc = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
+        self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
         # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
         # PlotUtils.finalPlot(self.model.P, self.xLoc, self.yLoc, img, contour_1, self.model.numPts)
 
