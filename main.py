@@ -10,6 +10,7 @@ import rospy
 from std_msgs.msg import Float32MultiArray
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
+from timeit import default_timer as timer
 
 
 class ListenPublish(object):
@@ -21,7 +22,8 @@ class ListenPublish(object):
         # initialize the model with 4th order efd, and 200 pts
         self.model = Model(4, 200)
         # initialize the publisher
-        self.pub = rospy.Publisher('grasp_coordinates', Float32MultiArray, queue_size=1)
+        self.pub = rospy.Publisher('grasp_coordinates', Float32MultiArray, queue_size=2)
+        self.plot_pub = rospy.Publisher('grasp_plot', Image, queue_size=2)
         self.sub = rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback)
 
     def run(self):
@@ -29,21 +31,33 @@ class ListenPublish(object):
 
     # get contour data from opencv
     def callback(self, data):
+        # print("got message")
+
+        start = timer()
+
         try:
             cv_image = self.bridge.imgmsg_to_cv2(data, "mono8")
         except CvBridgeError as e:
             print(e)
 
+
+
         self.find_current_grasp(cv_image)
-        self.final_plot(self.model.P, self.point1, self.point2, cv_image, self.model.contour)
-        print("grasp found")
+
+        img = self.final_plot(self.model.P, self.point1, self.point2, cv_image, self.model.contour)
+        end = timer()
+        print(end - start)
+        # print("grasp found")
 
         # print output format point1 x point1 y point2 x point2 y
         a = [self.model.P[self.point1, 0], self.model.P[self.point1, 1], self.model.P[self.point2, 0],
              self.model.P[self.point2, 1]]
         pub_array = Float32MultiArray(data=a)
+        ttt = self.bridge.cv2_to_imgmsg(img, "mono8")
         self.pub.publish(pub_array)
-        print("published locations")
+        self.plot_pub.publish(ttt)
+
+        # print("published locations")
 
     def final_plot(self, P, finalX, finalY, image=None, contour=None):
         # plot contours and grasping points in opencv
@@ -63,8 +77,9 @@ class ListenPublish(object):
         cv.circle(image, (fx, fy), 3, (255, 255, 255), -1)
         cv.circle(image, (fx1, fy1), 3, (255, 255, 255), -1)
 
-        cv.imshow("test", image)
-        cv.waitKey(3)
+        # cv.imshow("test", image)
+        # cv.waitKey(3)
+        return image # rviz will handle this from now on.
 
     def listener(self):
         rospy.init_node('grasp', anonymous=True)
@@ -99,6 +114,7 @@ class ListenPublish(object):
 
         P, N, Cbar = self.model.generate_model(contour_1)
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
+        # Grasping.FindBestGrasps(self.model.numPts, P, N, Cbar)
         # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
         # PlotUtils.finalPlot(self.model.P, self.xLoc, self.yLoc, img, contour_1, self.model.numPts)
 

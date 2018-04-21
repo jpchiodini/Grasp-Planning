@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92975a58-88c9-4219-a502-e2fa6d973033" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grasping.py" beforeDir="false" afterPath="$PROJECT_DIR$/Grasping.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +15,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Grasping.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Grasping.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+            <state relative-caret-position="270">
+              <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
@@ -73,21 +86,21 @@
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.py" />
         <option value="$PROJECT_DIR$/GradientDescent.py" />
-        <option value="$PROJECT_DIR$/Grasping.py" />
         <option value="$PROJECT_DIR$/pyefd.py" />
         <option value="$PROJECT_DIR$/Model.py" />
         <option value="$PROJECT_DIR$/PlotUtils.py" />
         <option value="$PROJECT_DIR$/PlotWindow.py" />
         <option value="$PROJECT_DIR$/RealtimePlot.py" />
+        <option value="$PROJECT_DIR$/Grasping.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="53" />
+    <option name="x" value="1366" />
     <option name="y" value="-4" />
-    <option name="width" value="1313" />
-    <option name="height" value="772" />
+    <option name="width" value="1920" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -177,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523720121562</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="output xy coordinates fix">
+      <created>1524251923696</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524251923696</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -186,13 +206,13 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13937548" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.46382332" side_tool="true" visible="true" weight="0.16415663" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5361767" weight="0.32680723" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4691546" side_tool="true" visible="true" weight="0.24397591" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5308454" visible="true" weight="0.24397591" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290735" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.73343486" weight="0.37349397" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7288652" weight="0.37951806" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -209,7 +229,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Classed everything out. now working with rosbag simulation node. Next up is to create test publisher." />
     <MESSAGE value="slight refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="slight refactoring" />
+    <MESSAGE value="output xy coordinates fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="output xy coordinates fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -265,8 +286,38 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Grasping.py</url>
-          <line>101</line>
+          <line>100</line>
           <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="267" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="278" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="280" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="282" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>20</line>
+          <option name="timeStamp" value="283" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -276,7 +327,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="263" />
+      <option name="time" value="284" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -577,8 +628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Grasping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -587,8 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="40" column="10" selection-start-line="40" selection-start-column="10" selection-end-line="40" selection-end-column="10" />
+        <state relative-caret-position="270">
+          <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
