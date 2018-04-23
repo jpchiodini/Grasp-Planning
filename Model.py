@@ -122,6 +122,13 @@ class Model(object):
         self.locus = self.calculate_dc_coefficients(self.contour)
         self.coeffs = self.elliptic_fourier_descriptors(self.contour, self.order)
         self.P, self.N, self.Cbar = self.generate_efd_model()
+        # import matplotlib.pyplot as plt
+        # plt.plot(contour[:, 0], contour[:, 1], 'c--', linewidth=2)
+        # plt.plot(self.P[:, 0], self.P[:, 1], 'y', linewidth=2)
+        # plt.show()
+
+
+
         return self.P, self.N, self.Cbar
 
     def calculate_dc_coefficients(self, contour):
@@ -264,6 +271,9 @@ class Model(object):
         # N[:, 0] = Nx
         # N[:, 1] = Ny
         # N[:, 2] = 0
+
+        Px[Px < 0] = 0
+        Py[Py < 0] = 0
 
         P = np.zeros((self.numPts, 3))
         P[:, 0] = Px
