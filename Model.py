@@ -35,6 +35,8 @@ class Model(object):
 
     def __init__(self, order, numPts):
         # initialize the model
+        self.xlim = 0
+        self.ylim = 0
         self.order = order
         self.numPts = numPts
         self.px = None
@@ -117,8 +119,10 @@ class Model(object):
         Ny = lambdify(ax, ddy_norm)
         return Px, Py, Zx, Zy, Nx, Ny
 
-    def generate_model(self, contour):
+    def generate_model(self, contour, xlim, ylim):
         self.contour = contour
+        self.xlim = xlim
+        self.ylim = ylim
         self.locus = self.calculate_dc_coefficients(self.contour)
         self.coeffs = self.elliptic_fourier_descriptors(self.contour, self.order)
         self.P, self.N, self.Cbar = self.generate_efd_model()
@@ -274,6 +278,9 @@ class Model(object):
 
         Px[Px < 0] = 0
         Py[Py < 0] = 0
+        Px[Px > self.xlim-1] = self.xlim-1
+        Py[Py > self.ylim-1] = self.ylim-1
+
 
         P = np.zeros((self.numPts, 3))
         P[:, 0] = Px

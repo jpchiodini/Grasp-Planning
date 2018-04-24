@@ -80,7 +80,7 @@ class ListenPublish(object):
         cv.circle(image, (fx1, fy1), 3, (255, 255, 255), -1)
 
         # cv.imshow("test", image)
-        # cv.waitKey(3)
+        # cv.waitKey(0)
         return image # rviz will handle this from now on.
 
     def listener(self):
@@ -88,9 +88,12 @@ class ListenPublish(object):
         rate = rospy.Rate(10)  # 10hz
         rospy.spin()
 
-    def find_current_grasp(self, img):
+    def find_current_grasp1(self, img):
+        # THRESHOLDING BY SATURATION
 
-        # rawImage = cv.imread('rawImage.jpg')
+        # rawImage = cv.imread('test5.png')
+        # img = cv.cvtColor(rawImage, cv.COLOR_BGR2GRAY)
+        # img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         rawImage = img
         # cv.imshow('Original Image', rawImage)
         # cv.waitKey(0)
@@ -100,20 +103,20 @@ class ListenPublish(object):
         # cv.waitKey(0)
 
         hue, saturation, value = cv.split(hsv)
-        # cv.imshow('Saturation Image', saturation)
-        # cv.waitKey(0)
-
-        # kernel = np.ones((10, 10), np.uint8)
-        # s = cv.dilate(saturation, kernel, 1)
-        # s = cv.erode(s, kernel, 1)
-        # cv.imshow('dilate erode', s)
+        # cv.imshow('Saturation Image', hue)
         # cv.waitKey(0)
 
         retval, thresholded = cv.threshold(saturation, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
         # cv.imshow('Thresholded Image', thresholded)
         # cv.waitKey(0)
 
-        medianFiltered = cv.medianBlur(thresholded, 5)
+        medianFiltered = cv.medianBlur(thresholded, 9)
+        # cv.imshow('Median Filtered Image', medianFiltered)
+        # cv.waitKey(0)
+
+        kernel = np.ones((5, 5), np.uint8)
+        medianFiltered = cv.dilate(medianFiltered, kernel, 1)
+        medianFiltered = cv.erode(medianFiltered, kernel, 1)
         # cv.imshow('Median Filtered Image', medianFiltered)
         # cv.waitKey(0)
 
@@ -125,7 +128,7 @@ class ListenPublish(object):
             if area > 100:
                 contour_list.append(contour)
 
-        # cv.drawContours(rawImage, contour_list, -1, (255, 0, 0), 2)
+        cv.drawContours(rawImage, contour_list[0], -1, (255, 0, 0), 2)
         # cv.imshow('Objects Detected', rawImage)
         # cv.waitKey(0)
 
@@ -135,61 +138,133 @@ class ListenPublish(object):
         P, N, Cbar = self.model.generate_model(contour_1)
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
 
+    def find_current_grasp(self, img):
+        # THRESHOLDING BY COLOR
+        # rawImage = cv.imread('test5.png')
+        # img = cv.cvtColor(rawImage, cv.COLOR_BGR2GRAY)
+        # img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+        rawImage = img
+        # cv.imshow('Original Image', rawImage)
+        # cv.waitKey(0)
+
+        #adaptive grey threshold this code may come in usefull.
+        # ret, thresh = cv.threshold(gray, 0, 255, cv.THRESH_BINARY_INV + cv.THRESH_OTSU)
+        # cv.imshow('HSV Image', thresh)
+        # cv.waitKey(0)
+
+        hsv = cv.cvtColor(rawImage, cv.COLOR_BGR2HSV)
+        # cv.imshow('HSV Image', hsv)
+        # cv.waitKey(0)
+
+        # define range of blue color in HSV
+        lower_blue = np.array([110, 50, 50])
+        upper_blue = np.array([130, 255, 255])
+
+        # Threshold the HSV image to get only blue colors
+        mask = cv.inRange(hsv, lower_blue, upper_blue)
+        # cv.imshow('HSV Image', mask)
+        # cv.waitKey(0)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #
-        #
-        #
-        #
-        # img = 255 - img
-        # kernel = np.ones((15, 15), np.uint8)
-        # img = cv.dilate(img, kernel, 1)
-        # img = cv.erode(img, kernel, 1)
-        # # threshold contours close to white as we can. We can tinker with this value...
-        # color_threshold = 180
-        # # create binary image
-        # blur = cv.GaussianBlur(img, (5, 5), 0)
-        # (color_threshold, binary) = cv.threshold(blur, color_threshold, 255, cv.THRESH_BINARY)
-        #
-        # # find contours
-        # (_, contours, _) = cv.findContours(binary, cv.RETR_EXTERNAL,
-        #                                    cv.CHAIN_APPROX_NONE)
-        #
-        # # draw contours over original image
-        # cv.drawContours(img, contours, -1, (0, 0, 255), 5)
-        # edge = cv.Canny(img, 100, 200)
-        # _, cnts, _ = cv.findContours(edge.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-        #
-        #
-        # cv.drawContours(img, cnts, -1, (255, 0, 0), 2)
-        # cv.imshow('Objects Detected', img)
+        # hue, saturation, value = cv.split(hsv)
+        # cv.imshow('Saturation Image', hue)
         # cv.waitKey(0)
         #
+        # kernel = np.ones((10, 10), np.uint8)
+        # s = cv.dilate(saturation, kernel, 1)
+        # s = cv.erode(s, kernel, 1)
+        # cv.imshow('dilate erode', s)
+        # cv.waitKey(0)
         #
-        # cnts = sorted(cnts, key=cv.contourArea, reverse=True)[:1]
-        # screenCnt = None
-        #
-        # contour_1 = np.vstack(cnts[0]).squeeze()
-        #
-        # P, N, Cbar = self.model.generate_model(contour_1)
-        # self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
-        # # Grasping.FindBestGrasps(self.model.numPts, P, N, Cbar)
-        # # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
+        # retval, thresholded = cv.threshold(saturation, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+        # cv.imshow('Thresholded Image', thresholded)
+        # cv.waitKey(0)
+
+        medianFiltered = cv.medianBlur(mask, 3)
+        # cv.imshow('Median Filtered Image', medianFiltered)
+        # cv.waitKey(0)
+
+        # h, w = mask.shape[:2]
+        # mask = np.zeros((h + 2, w + 2), np.uint8)
+        # im_floodfill = medianFiltered.copy()
+
+        # Floodfill from point (0, 0)
+        # cv.floodFill(medianFiltered, mask, (0, 0), 255);
+
+
+        # Invert floodfilled image
+        # im_floodfill_inv = cv.bitwise_not(medianFiltered)
+
+        # Combine the two images to get the foreground.
+        # im_out = im_floodfill | im_floodfill_inv
+        # cv.imshow('Median Filtered Image', im_out)
+        # cv.waitKey(0)
+
+        kernel = np.ones((5, 5), np.uint8)
+        medianFiltered = cv.dilate(mask, kernel, 1)
+        medianFiltered = cv.erode(medianFiltered, kernel, 1)
+        # cv.imshow('Median Filtered Image', medianFiltered)
+        # cv.waitKey(0)
+
+        _, contours, hierarchy = cv.findContours(medianFiltered, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+
+        contour_list = []
+        for contour in contours:
+            area = cv.contourArea(contour)
+            if area > 100:
+                contour_list.append(contour)
+
+        cv.drawContours(rawImage, contour_list[0], -1, (255, 0, 0), 2)
+        # cv.imshow('Objects Detected', rawImage)
+        # cv.waitKey(0)
+
+        cnts = sorted(contours, key=cv.contourArea, reverse=True)[:1]
+        contour_1 = np.vstack(cnts[0]).squeeze()
+
+        P, N, Cbar = self.model.generate_model(contour_1,rawImage.shape[1],rawImage.shape[0])
+        self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
+
+
+    def FindCurrentGrasp2(self,img):
+        # My original method
+        img = 255 - img
+        kernel = np.ones((15, 15), np.uint8)
+        img = cv.dilate(img, kernel, 1)
+        img = cv.erode(img, kernel, 1)
+        # threshold contours close to white as we can. We can tinker with this value...
+        color_threshold = 180
+        # create binary image
+        blur = cv.GaussianBlur(img, (5, 5), 0)
+        (color_threshold, binary) = cv.threshold(blur, color_threshold, 255, cv.THRESH_BINARY)
+
+        # find contours
+        (_, contours, _) = cv.findContours(binary, cv.RETR_EXTERNAL,
+                                           cv.CHAIN_APPROX_NONE)
+
+        # draw contours over original image
+        cv.drawContours(img, contours, -1, (0, 0, 255), 5)
+        edge = cv.Canny(img, 100, 200)
+        _, cnts, _ = cv.findContours(edge.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+
+
+        cv.drawContours(img, cnts, -1, (255, 0, 0), 2)
+        cv.imshow('Objects Detected', img)
+        cv.waitKey(0)
+
+
+        cnts = sorted(cnts, key=cv.contourArea, reverse=True)[:1]
+        screenCnt = None
+
+        contour_1 = np.vstack(cnts[0]).squeeze()
+
+        P, N, Cbar = self.model.generate_model(contour_1)
+        self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
+        # Grasping.FindBestGrasps(self.model.numPts, P, N, Cbar)
+        # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
+
+
+
+
 
 
 if __name__ == '__main__':
