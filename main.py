@@ -22,9 +22,9 @@ class ListenPublish(object):
         # initialize the model with 4th order efd, and 200 pts
         self.model = Model(4, 200)
         # initialize the publisher
-        self.pub = rospy.Publisher('grasp_coordinates', Float32MultiArray, queue_size=2)
-        self.plot_pub = rospy.Publisher('grasp_plot', Image, queue_size=2)
-        self.sub = rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback)
+        self.pub = rospy.Publisher('grasp_coordinates', Float32MultiArray, queue_size=100000000000)
+        self.plot_pub = rospy.Publisher('grasp_plot', Image, queue_size=1000000000)
+        self.sub = rospy.Subscriber('/kinect2/cropped_image/bounding_box', Image, self.callback,queue_size=1, buff_size=2**24)
 
     def run(self):
         self.listener()
@@ -43,7 +43,7 @@ class ListenPublish(object):
 
 
 
-        self.find_current_grasp(cv_image)
+        self.find_current_grasp1(cv_image)
 
         img = self.final_plot(self.model.P, self.point1, self.point2, cv_image, self.model.contour)
         end = timer()
@@ -135,7 +135,7 @@ class ListenPublish(object):
         cnts = sorted(contours, key=cv.contourArea, reverse=True)[:1]
         contour_1 = np.vstack(cnts[0]).squeeze()
 
-        P, N, Cbar = self.model.generate_model(contour_1)
+        P, N, Cbar = self.model.generate_model(contour_1,rawImage.shape[1],rawImage.shape[0])
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
 
     def find_current_grasp(self, img):
@@ -225,8 +225,9 @@ class ListenPublish(object):
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
 
 
-    def FindCurrentGrasp2(self,img):
+    def find_current_grasp2(self,img):
         # My original method
+        img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         img = 255 - img
         kernel = np.ones((15, 15), np.uint8)
         img = cv.dilate(img, kernel, 1)
@@ -247,9 +248,9 @@ class ListenPublish(object):
         _, cnts, _ = cv.findContours(edge.copy(), cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
 
 
-        cv.drawContours(img, cnts, -1, (255, 0, 0), 2)
-        cv.imshow('Objects Detected', img)
-        cv.waitKey(0)
+        #cv.drawContours(img, cnts, -1, (255, 0, 0), 2)
+        #cv.imshow('Objects Detected', img)
+        #cv.waitKey(0)
 
 
         cnts = sorted(cnts, key=cv.contourArea, reverse=True)[:1]
@@ -257,7 +258,7 @@ class ListenPublish(object):
 
         contour_1 = np.vstack(cnts[0]).squeeze()
 
-        P, N, Cbar = self.model.generate_model(contour_1)
+        P, N, Cbar = self.model.generate_model(contour_1,img.shape[1],img.shape[0])
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
         # Grasping.FindBestGrasps(self.model.numPts, P, N, Cbar)
         # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
