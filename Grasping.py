@@ -52,7 +52,7 @@ def GraspPointFiltering(numPts, P, N, C):
             return x, y
 
     # if we haven't returned anything till now, there are no good points...
-    return -1, -1
+    return 1, 1
 
 
 def Term1(C1, C2):
