@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="92975a58-88c9-4219-a502-e2fa6d973033" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="Grasping.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grasping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+            <state relative-caret-position="183">
+              <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -30,29 +29,20 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+            <state relative-caret-position="219">
+              <caret line="147" column="8" lean-forward="true" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
-                <element signature="e#2893#4649#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test5.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test5.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="Model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Model.py">
+      <file leaf-file-name="topics.py" pinned="false" current-in-tab="false">
+        <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2593">
-              <caret line="285" column="20" lean-forward="true" selection-start-line="285" selection-start-column="20" selection-end-line="285" selection-end-column="20" />
-              <folding>
-                <element signature="e#637#668#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="144">
+              <caret line="750" column="10" lean-forward="true" selection-start-line="750" selection-start-column="10" selection-end-line="750" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -84,6 +74,7 @@
       <find>^</find>
       <find>compute_error_for_line_given_points</find>
       <find>coeffs</find>
+      <find>zeros</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,15 +92,16 @@
         <option value="$PROJECT_DIR$/RealtimePlot.py" />
         <option value="$PROJECT_DIR$/Grasping.py" />
         <option value="$PROJECT_DIR$/Model.py" />
+        <option value="$PROJECT_DIR$/testFile.py" />
         <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="52" />
-    <option name="y" value="-11" />
-    <option name="width" value="1869" />
-    <option name="height" value="1092" />
+    <option name="x" value="53" />
+    <option name="y" value="-4" />
+    <option name="width" value="1313" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -217,26 +209,26 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="-11" width="1869" height="1092" extended-state="6" />
+    <frame x="53" y="-4" width="1313" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13926084" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19649658" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.47509372" side_tool="true" visible="true" weight="0.24385247" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49812534" weight="0.17520492" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4798172" side_tool="true" visible="true" weight="0.27861446" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49919656" weight="0.32991803" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5249063" visible="true" weight="0.24385247" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5201828" visible="true" weight="0.27861446" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290735" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.72254956" weight="0.30737704" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7182026" weight="0.33885542" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49812534" weight="0.17520492" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -316,11 +308,6 @@
           <line>114</line>
           <option name="timeStamp" value="280" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Model.py</url>
-          <line>135</line>
-          <option name="timeStamp" value="324" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -329,10 +316,20 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="328" />
+      <option name="time" value="354" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+          <folding>
+            <element signature="e#22#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11235">
@@ -374,7 +371,6 @@
           <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
@@ -392,7 +388,6 @@
           <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
@@ -409,7 +404,6 @@
         <state>
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
@@ -445,7 +439,6 @@
           <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
@@ -470,7 +463,6 @@
           <caret line="99" selection-start-line="99" selection-end-line="99" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
@@ -538,13 +530,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PlotWindow.py" />
     <entry file="file://$PROJECT_DIR$/RealtimePlot.py" />
-    <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11220">
-          <caret line="749" selection-start-line="749" selection-end-line="749" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PlotUtils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -562,25 +547,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test4.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test7.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test8.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_pp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/argparse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="1555" column="8" selection-start-line="1555" selection-start-column="8" selection-end-line="1555" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="e#235#245#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -589,8 +576,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Grasping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        <state relative-caret-position="183">
+          <caret line="129" column="28" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="28" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -599,21 +586,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2593">
-          <caret line="285" column="20" lean-forward="true" selection-start-line="285" selection-start-column="20" selection-end-line="285" selection-end-column="20" />
+        <state relative-caret-position="71">
+          <caret line="264" column="20" selection-start-line="264" selection-start-column="15" selection-end-line="264" selection-end-column="20" />
           <folding>
             <element signature="e#637#668#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test6.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test7.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file:///opt/ros/kinetic/lib/python2.7/dist-packages/rospy/topics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="750" column="10" lean-forward="true" selection-start-line="750" selection-start-column="10" selection-end-line="750" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+        <state relative-caret-position="219">
+          <caret line="147" column="8" lean-forward="true" selection-start-line="147" selection-start-column="8" selection-end-line="147" selection-end-column="8" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
-            <element signature="e#2893#4649#0" />
           </folding>
         </state>
       </provider>
