@@ -61,8 +61,7 @@ class ListenPublish(object):
         # print("published locations")
 
     def final_plot(self, P, finalX, finalY, image=None, contour=None):
-        # this function is the main entry point for the grasping detection. We do some processing on the image, and then
-        # find the grasp points.
+
 
         # plot contours and grasping points in opencv
         # image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
@@ -108,6 +107,8 @@ class ListenPublish(object):
 
     def find_current_grasp1(self, img):
         # THRESHOLDING BY SATURATION
+        # this function is the main entry point for the grasping detection. We do some processing on the image, and then
+        # find the grasp points.
 
         # rawImage = cv.imread('test5.png')
         # img = cv.cvtColor(rawImage, cv.COLOR_BGR2GRAY)
@@ -157,6 +158,7 @@ class ListenPublish(object):
         self.point1, self.point2 = Grasping.GraspPointFiltering(self.model.numPts, P, N, Cbar)
 
     def find_current_grasp(self, img):
+        # attempt to use color detection. Didn't work well.
 
         # THRESHOLDING BY COLOR
         # rawImage = cv.imread('test5.png')
@@ -282,7 +284,7 @@ class ListenPublish(object):
         # PlotUtils.plot_efd(self.model.P, self.model.N, self.model.Cbar, img, contour_1, self.model.numPts)
 
     def find_current_grasp3(self, img):
-
+        # attempt to use surf rotation invariant algorithm.
         MIN_MATCH_COUNT = 30
 
         detector = cv.SIFT()
