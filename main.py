@@ -82,7 +82,7 @@ class ListenPublish(object):
             pts[ii, 1] = b[ii]
 
         pts = pts.reshape((-1, 1, 2))
-        cv.polylines(image, [pts], True, (255, 255, 255))
+        cv.polylines(image, [pts], True, (0, 255, 0))
         # cv.imshow("test", image)
         # cv.waitKey(0)
 
