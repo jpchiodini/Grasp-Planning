@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92975a58-88c9-4219-a502-e2fa6d973033" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Grasping.py" beforeDir="false" afterPath="$PROJECT_DIR$/Grasping.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +17,8 @@
       <file leaf-file-name="Grasping.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Grasping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+            <state relative-caret-position="129">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -29,8 +29,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
+            <state relative-caret-position="357">
+              <caret line="93" selection-start-line="93" selection-end-line="93" />
               <folding>
                 <element signature="e#22#59#0" expanded="true" />
               </folding>
@@ -92,16 +92,16 @@
         <option value="$PROJECT_DIR$/RealtimePlot.py" />
         <option value="$PROJECT_DIR$/Model.py" />
         <option value="$PROJECT_DIR$/testFile.py" />
-        <option value="$PROJECT_DIR$/Grasping.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Grasping.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="52" />
-    <option name="y" value="-11" />
-    <option name="width" value="1315" />
-    <option name="height" value="780" />
+    <option name="x" value="53" />
+    <option name="y" value="-4" />
+    <option name="width" value="1313" />
+    <option name="height" value="772" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -212,23 +212,30 @@
       <option name="project" value="LOCAL" />
       <updated>1524693125202</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changed white to green">
+      <created>1524760012828</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1524760012829</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="-11" width="1315" height="780" extended-state="6" />
+    <frame x="53" y="-4" width="1313" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19649658" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4798172" side_tool="true" visible="true" weight="0.27861446" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.28255904" side_tool="true" visible="true" weight="0.33885542" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49919656" weight="0.32991803" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5201828" weight="0.27861446" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.51902586" weight="0.2908805" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3290735" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7182026" weight="0.33885542" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.71744096" visible="true" weight="0.33885542" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -247,7 +254,8 @@
     <MESSAGE value="output xy coordinates fix" />
     <MESSAGE value="attempt to make less sensitive to light." />
     <MESSAGE value="change output to color overlay" />
-    <option name="LAST_COMMIT_MESSAGE" value="change output to color overlay" />
+    <MESSAGE value="changed white to green" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed white to green" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -303,18 +311,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Grasping.py</url>
-          <line>100</line>
+          <line>103</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Grasping.py</url>
-          <line>142</line>
+          <line>145</line>
           <option name="timeStamp" value="278" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Grasping.py</url>
-          <line>114</line>
+          <line>117</line>
           <option name="timeStamp" value="280" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Grasping.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="354" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -324,7 +337,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="354" />
+      <option name="time" value="355" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -610,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Grasping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="15" selection-start-line="54" selection-start-column="15" selection-end-line="54" selection-end-column="15" />
+        <state relative-caret-position="129">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -620,8 +633,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
+        <state relative-caret-position="357">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
           <folding>
             <element signature="e#22#59#0" expanded="true" />
           </folding>
