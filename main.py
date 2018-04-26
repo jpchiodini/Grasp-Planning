@@ -61,6 +61,8 @@ class ListenPublish(object):
         # print("published locations")
 
     def final_plot(self, P, finalX, finalY, image=None, contour=None):
+        # this function is the main entry point for the grasping detection. We do some processing on the image, and then
+        # find the grasp points.
 
         # plot contours and grasping points in opencv
         # image = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
